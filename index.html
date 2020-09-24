@@ -1,19 +1,45 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-firestore.js"></script>
+
     </head>
     <body>
 
-        <h1>Cloud Cafe</h1>
+        <h1>Fav Temples</h1>
 
         <div class="content">
 
-            <form id="add-cafe-form"></form>
+            <form id="add-temple-form">
+              <input type="text" name="name" placeholder="Temple name">
+              <input type="text" name="city" placeholder="Temple city">
+              <button>Add Temple</button>
+            </form>
 
-            <ul id="cafe-list"></ul>
+            <ul id="temple-list"></ul>
 
         </div>
 
+
+        <script>
+          // Your web app's Firebase configuration
+          // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+          var firebaseConfig = {
+            apiKey: "AIzaSyAaZsH_1V2OS5eOWu99-rA2xyMWlPvTpF8",
+            authDomain: "favtemples-learn.firebaseapp.com",
+            databaseURL: "https://favtemples-learn.firebaseio.com",
+            projectId: "favtemples-learn",
+            storageBucket: "favtemples-learn.appspot.com",
+            messagingSenderId: "971492867220",
+            appId: "1:971492867220:web:aabebcd3cbd2fabcffc881",
+            measurementId: "G-QX8JD2EJD7"
+          };
+          // Initialize Firebase
+          firebase.initializeApp(firebaseConfig);
+          const db = firebase.firestore();
+        </script>
         <script src="app.js"></script>
     </body>
 </html>

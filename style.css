@@ -1,6 +1,6 @@
 body{
-    background: #eab0dc;
-    font-family: ubuntu;
+    background: #eca02f;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 h1{
@@ -94,9 +94,8 @@ button{
     border-radius: 10px;
     padding: 13px;
     width: 14%;
-    box-shadow: -1px 0px 1px rgba(0,0,0,0.1);
+    box-shadow: -1.5px 0px 1.5px rgba(0,0,0,0.1);
     font-weight: bold;
-    font-family: ubuntu;
     letter-spacing: 1px;
     color: #999;
 }
