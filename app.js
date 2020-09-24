@@ -23,16 +23,16 @@ function renderTemple(doc){
     cross.addEventListener('click', (e) => {
         e.stopPropagation();
         let id = e.target.parentElement.getAttribute('data-id');
-        db.collection('cafes').doc(id).delete();
+        db.collection('temples').doc(id).delete();
     })
 }
 
 // geting data
-db.collection('temples').get().then((snapshot) => {
-    snapshot.docs.forEach(doc => {
-        renderTemple(doc);
-    });
-})
+// db.collection('temples').orderBy('name').get().then((snapshot) => {
+//     snapshot.docs.forEach(doc => {
+//         renderTemple(doc);
+//     });
+// })
 
 // saving data
 form.addEventListener('submit', (e) => {
@@ -44,4 +44,17 @@ form.addEventListener('submit', (e) => {
     })
     form.name.value = '';
     form.city.value = '';
+})
+
+// realtime listener
+db.collection('temples').orderBy('name').onSnapshot((snapshot) => {
+    let changes = snapshot.docChanges();
+    changes.forEach(change => {
+        if(change.type == 'added'){
+            renderTemple(change.doc);
+        } else if (change.type == 'removed') {
+            let li = templeList.querySelector('[data-id='+change.doc.id+']');
+            templeList.removeChild(li);
+        }
+    })
 })
